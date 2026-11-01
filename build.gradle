@@ -1,0 +1,75 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+    id 'idea'
+}
+
+version = project.mod_version
+group = 'dev.fixedvoiceport'
+
+base {
+    archivesName = 'fixed-simple-vc-port-neoforge-1.21.1'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+repositories {
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('run')
+        }
+    }
+
+    mods {
+        fixed_voice_port {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+dependencies {
+    // Available to the IDE and the development client, never bundled in our JAR.
+    compileOnly 'maven.modrinth:simple-voice-chat:neoforge-1.21.1-2.6.22'
+    localRuntime 'maven.modrinth:simple-voice-chat:neoforge-1.21.1-2.6.22'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    // NeoForge 1.21.1 uses Mojang runtime names; all mixins have remap=false.
+    options.compilerArgs.add('-proc:none')
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    inputs.property 'mod_version', project.mod_version
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(mod_version: project.mod_version)
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    from('LICENSE')
+}
+
+idea {
+    module {
+        downloadSources = true
+    }
+}
