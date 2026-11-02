@@ -1,0 +1,7 @@
+{
+  "fixed_voice_port.voice_port": "Порт голосового чата",
+  "fixed_voice_port.tooltip": "UDP-порт Simple Voice Chat (1–65535). Сохраняется при открытии мира для сети.",
+  "fixed_voice_port.invalid": "Введи порт от 1 до 65535",
+  "fixed_voice_port.unavailable": "Сервер голосового чата ещё не готов",
+  "fixed_voice_port.apply_error": "Порт или конфиг недоступен; смотри лог."
+}
