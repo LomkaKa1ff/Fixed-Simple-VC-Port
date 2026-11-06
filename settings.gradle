@@ -1,11 +1,14 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-    }
-}
-
-plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
-}
-
+import groovy.json.JsonSlurper
+pluginManagement { repositories { gradlePluginPortal() } }
+plugins { id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0' }
 rootProject.name = 'fixed-voice-port'
+def matrix = new JsonSlurper().parse(file('versions.json'))
+def requested = providers.gradleProperty('targets').getOrElse('1.21.1')
+def selected = requested == 'all' ? matrix*.minecraft : requested.split(',')*.trim()
+selected.each { mc ->
+    def row = matrix.find { it.minecraft == mc }
+    if (row == null) throw new GradleException("Unknown Minecraft target: ${mc}")
+    include(row.project)
+    project(":${row.project}").projectDir = file("versions/${mc}")
+    project(":${row.project}").buildFileName = '../../version.gradle'
+}

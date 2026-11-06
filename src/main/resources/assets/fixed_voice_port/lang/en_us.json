@@ -1,7 +1,0 @@
-{
-  "fixed_voice_port.voice_port": "Voice Chat Port",
-  "fixed_voice_port.tooltip": "Simple Voice Chat UDP port (1–65535). Saved when you open the world to LAN.",
-  "fixed_voice_port.invalid": "Enter a port from 1 to 65535",
-  "fixed_voice_port.unavailable": "Voice chat server is not ready",
-  "fixed_voice_port.apply_error": "Port unavailable or config not writable; check the log."
-}
