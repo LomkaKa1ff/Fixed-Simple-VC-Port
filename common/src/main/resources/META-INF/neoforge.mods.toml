@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="fixed_voice_port"
+version="${mod_version}"
+displayName="Fixed Simple VC Port"
+authors="Lomka Ka1ff"
+description='''This mod gives opportunity to choose your own port for Simple Voice Chat when you want to open LAN connection for your Single Player world.'''
+displayTest="NONE"
+
+[[mixins]]
+config="fixed_voice_port.mixins.json"
+
+[[dependencies.fixed_voice_port]]
+modId="neoforge"
+type="required"
+versionRange="[${neo_version}]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.fixed_voice_port]]
+modId="minecraft"
+type="required"
+versionRange="[${minecraft}]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.fixed_voice_port]]
+modId="voicechat"
+type="required"
+versionRange="[${svc_version}]"
+ordering="AFTER"
+side="BOTH"

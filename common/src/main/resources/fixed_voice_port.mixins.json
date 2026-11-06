@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.fixedvoiceport.mixin",
+  "compatibilityLevel": "JAVA_${mixin_java}",
+  "mixins": ["VoiceServerMixin"],
+  "client": ["ShareToLanScreenMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

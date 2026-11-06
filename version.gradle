@@ -1,0 +1,47 @@
+import groovy.json.JsonSlurper
+apply plugin: 'java-library'
+apply plugin: 'net.neoforged.moddev'
+apply plugin: 'idea'
+def target = new JsonSlurper().parse(rootProject.file('versions.json')).find { it.project == project.name }
+version = rootProject.property('mod_version')
+group = 'dev.fixedvoiceport'
+base { archivesName = "fixed-simple-vc-port-neoforge-${target.minecraft}" }
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(target.java as int)
+    withSourcesJar()
+}
+sourceSets.main {
+    java.srcDirs = [rootProject.file('common/src/main/java'), rootProject.file("adapters/${target.adapter}/java")]
+    resources.srcDirs = [rootProject.file('common/src/main/resources')]
+}
+repositories {
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
+}
+neoForge {
+    enable {
+        version = target.neoforge
+        disableRecompilation = providers.gradleProperty('skipMinecraftRecompile')
+                .map { it.toBoolean() }.getOrElse((target.java as int) >= 25)
+    }
+    runs { client { client(); gameDirectory = project.file('run') } }
+    mods { fixed_voice_port { sourceSet(sourceSets.main) } }
+}
+configurations { runtimeClasspath.extendsFrom localRuntime }
+dependencies {
+    compileOnly "maven.modrinth:simple-voice-chat:${target.svc_id}"
+    localRuntime "maven.modrinth:simple-voice-chat:${target.svc_id}"
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = target.java as int
+    options.compilerArgs.add('-proc:none')
+}
+tasks.named('processResources', ProcessResources).configure {
+    def vars = [mod_version: project.version, minecraft: target.minecraft,
+                neo_version: target.neoforge, svc_version: target.svc_mod_version,
+                mixin_java: target.java]
+    inputs.properties(vars)
+    filesMatching(['META-INF/neoforge.mods.toml','fixed_voice_port.mixins.json']) { expand(vars) }
+}
+tasks.named('jar', Jar).configure { from(rootProject.file('LICENSE')) }
+idea { module { downloadSources = true } }

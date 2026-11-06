@@ -1,0 +1,82 @@
+[
+  {
+    "minecraft": "1.21.1",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.2",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.3",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.4",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.5",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.6",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.7",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.8",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.9",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.10",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "1.21.11",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "26.1",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "26.1.1",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "26.1.2",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "26.2",
+    "compiles": true,
+    "mixin_transform": true
+  },
+  {
+    "minecraft": "26.3",
+    "compiles": true,
+    "mixin_transform": true
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "minecraft": "1.21.1",
+    "mixin": "0.16.4+mixin.0.8.7",
+    "fml": "4.0.45"
+  },
+  {
+    "minecraft": "1.21.2",
+    "mixin": "0.15.2+mixin.0.8.7",
+    "fml": "4.0.29"
+  },
+  {
+    "minecraft": "1.21.3",
+    "mixin": "0.15.2+mixin.0.8.7",
+    "fml": "5.0.8"
+  },
+  {
+    "minecraft": "1.21.4",
+    "mixin": "0.15.2+mixin.0.8.7",
+    "fml": "6.0.18"
+  },
+  {
+    "minecraft": "1.21.5",
+    "mixin": "0.15.2+mixin.0.8.7",
+    "fml": "7.0.13"
+  },
+  {
+    "minecraft": "1.21.6",
+    "mixin": "0.15.2+mixin.0.8.7",
+    "fml": "9.0.2"
+  },
+  {
+    "minecraft": "1.21.7",
+    "mixin": "0.15.2+mixin.0.8.7",
+    "fml": "9.0.14"
+  },
+  {
+    "minecraft": "1.21.8",
+    "mixin": "0.15.2+mixin.0.8.7",
+    "fml": "9.0.18"
+  },
+  {
+    "minecraft": "1.21.9",
+    "mixin": "0.16.4+mixin.0.8.7",
+    "fml": "10.0.14"
+  },
+  {
+    "minecraft": "1.21.10",
+    "mixin": "0.16.5+mixin.0.8.7",
+    "fml": "10.0.32"
+  },
+  {
+    "minecraft": "1.21.11",
+    "mixin": "0.16.5+mixin.0.8.7",
+    "fml": "10.0.36"
+  },
+  {
+    "minecraft": "26.1",
+    "mixin": "0.17.0+mixin.0.8.7",
+    "fml": "11.0.5"
+  },
+  {
+    "minecraft": "26.1.1",
+    "mixin": "0.17.0+mixin.0.8.7",
+    "fml": "11.0.5"
+  },
+  {
+    "minecraft": "26.1.2",
+    "mixin": "0.17.4+mixin.0.8.7",
+    "fml": "11.0.15"
+  },
+  {
+    "minecraft": "26.2",
+    "mixin": "0.17.4+mixin.0.8.7",
+    "fml": "11.0.16"
+  },
+  {
+    "minecraft": "26.3",
+    "mixin": "0.17.4+mixin.0.8.7",
+    "fml": "12.0.12"
+  }
+]
